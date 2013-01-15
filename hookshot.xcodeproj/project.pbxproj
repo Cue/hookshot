@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6F56831416A4E7DB004D7B09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F56831316A4E7DB004D7B09 /* Foundation.framework */; };
 		6F56832316A4E7DB004D7B09 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F56832216A4E7DB004D7B09 /* SenTestingKit.framework */; };
-		6F56832516A4E7DB004D7B09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F56832416A4E7DB004D7B09 /* UIKit.framework */; };
 		6F56832616A4E7DB004D7B09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F56831316A4E7DB004D7B09 /* Foundation.framework */; };
 		6F56832916A4E7DB004D7B09 /* libhookshot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F56831016A4E7DB004D7B09 /* libhookshot.a */; };
 		6F56834916A4E899004D7B09 /* CCCountInstances.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F56834016A4E899004D7B09 /* CCCountInstances.m */; };
@@ -55,7 +54,6 @@
 		6F56831316A4E7DB004D7B09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6F56832116A4E7DB004D7B09 /* hookshotTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hookshotTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F56832216A4E7DB004D7B09 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		6F56832416A4E7DB004D7B09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		6F56832C16A4E7DB004D7B09 /* hookshotTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hookshotTests-Info.plist"; sourceTree = "<group>"; };
 		6F56833F16A4E899004D7B09 /* CCCountInstances.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCCountInstances.h; path = Classes/CCCountInstances.h; sourceTree = SOURCE_ROOT; };
 		6F56834016A4E899004D7B09 /* CCCountInstances.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCCountInstances.m; path = Classes/CCCountInstances.m; sourceTree = SOURCE_ROOT; };
@@ -91,7 +89,6 @@
 			files = (
 				6FF0F54F16A5402C001C01E2 /* libc++.dylib in Frameworks */,
 				6F56832316A4E7DB004D7B09 /* SenTestingKit.framework in Frameworks */,
-				6F56832516A4E7DB004D7B09 /* UIKit.framework in Frameworks */,
 				6F56832616A4E7DB004D7B09 /* Foundation.framework in Frameworks */,
 				6F56832916A4E7DB004D7B09 /* libhookshot.a in Frameworks */,
 			);
@@ -125,7 +122,6 @@
 			children = (
 				6F56831316A4E7DB004D7B09 /* Foundation.framework */,
 				6F56832216A4E7DB004D7B09 /* SenTestingKit.framework */,
-				6F56832416A4E7DB004D7B09 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
