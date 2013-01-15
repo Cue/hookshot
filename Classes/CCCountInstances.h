@@ -7,6 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 
+#ifdef HOOKSHOT_ENABLED
 
 @interface CCCountInstances : NSObject
 
@@ -15,3 +16,5 @@
 + (int)getCountForTesting:(Class)cls;
 
 @end
+
+#endif

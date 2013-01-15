@@ -9,12 +9,6 @@
 
 #ifdef HOOKSHOT_ENABLED
 
-#define CHECKPOINT(s) [CCInstrumentingProfiler addCheckpoint:s]
-
-#define TAG(o, s) [CCInstrumentingProfiler setTag:s forObject:o]
-
-#define PROFILE_CPP_FUNCTION(className, name) CCStackProfiler __cc_stack_instrumenter__(className, name)
-
 #ifdef __cplusplus
 
 class CCStackProfiler {
@@ -38,14 +32,5 @@ public:
 + (void)setTag:(NSString *)tag forObject:(id)o;
 
 @end
-
-
-#else
-
-#define CHECKPOINT(s)
-
-#define TAG(o, s)
-
-#define PROFILE_CPP_FUNCTION(className, name)
 
 #endif
