@@ -14,9 +14,6 @@
 
 """Profile server."""
 
-from eventlet import wsgi
-import eventlet
-
 import json
 import logging
 
@@ -70,4 +67,4 @@ def run(d):
   DATA = d
 
   logging.info('Listening on http://localhost:8020')
-  wsgi.server(eventlet.listen(('', 8020)), APP)
+  APP.run(port=8020, debug=True)
