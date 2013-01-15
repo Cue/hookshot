@@ -24,6 +24,10 @@ static NSCountedSet *_classCounts = nil;
 
 + (void)initialize;
 {
+    if (self != [CCCountInstances class]) {
+        return;
+    }
+    
     _classCounts = [[NSCountedSet alloc] init];
 }
 

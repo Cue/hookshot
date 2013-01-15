@@ -66,6 +66,10 @@ static BOOL dealloc2WasCalled = NO;
 
 + (void)initialize;
 {
+    if (self != [CCCountInstancesTest class]) {
+        return;
+    }
+    
     [CCCountInstances countInstances:[CCClassWithNoDealloc class]];
     [CCCountInstances countInstances:[CCClassWithDealloc1 class]];
     [CCCountInstances countInstances:[CCClassWithDealloc2 class]];
