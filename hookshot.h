@@ -18,7 +18,7 @@
 
 #define PROFILE_CLASS(c) [CCInstrumentingProfiler profileClass:c];
 
-#define PROFILE_CLASS_EXCEPT(c, e) [CCInstrumentingProfiler profileClass:c except:e]
+#define PROFILE_CLASS_EXCEPT(c, ...) [CCInstrumentingProfiler profileClass:c except: @[ __VA_ARGS__ ]]
 
 #define PREVENT_INSTRUMENTATION(c, s) [CCInstanceMessageInstrumentation preventInstrumentation:c selector:s]
 
@@ -28,6 +28,18 @@
 
 #define PROFILE_CPP_FUNCTION(className, name) CCStackProfiler __cc_stack_instrumenter__(className, name)
 
+#define COUNTED_CPP_CLASS(className) \
+class className; \
+template <> \
+struct CCNativeCountClassNameTrait<className> \
+{ \
+    static const std::string& name; \
+}; \
+class className : public CCNativeCountInstances<CCNativeCountClassNameTrait<className>>
+
+#define COUNTED_CPP_CLASS_IMPLEMENTATION_PREAMBLE(className) \
+const std::string& CCNativeCountClassNameTrait<className>::name = #className; \
+
 
 #else
 
@@ -35,7 +47,7 @@
 
 #define PROFILE_CLASS(c)
 
-#define PROFILE_CLASS_EXCEPT(c, e)
+#define PROFILE_CLASS_EXCEPT(c, e, ...)
 
 #define PREVENT_INSTRUMENTATION(c, s)
 
@@ -44,5 +56,10 @@
 #define TAG(o, s)
 
 #define PROFILE_CPP_FUNCTION(className, name)
+
+#define COUNTED_CPP_CLASS(className) \
+class className
+
+#define COUNTED_CPP_CLASS_IMPLEMENTATION_PREAMBLE(className)
 
 #endif
