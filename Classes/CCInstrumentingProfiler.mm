@@ -94,7 +94,10 @@ static char * getCurrentThreadName() {
     NSString *name = currentThread == [NSThread mainThread] ? @"MAIN" : [currentThread name];
     if (![name length]) {
         if (isDispatchThread()) {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated"
             dispatch_queue_t current = dispatch_get_current_queue();
+#pragma GCC diagnostic pop
             name = [NSString stringWithFormat:@"%s-%x", dispatch_queue_get_label(current), (int) currentThread];
         } else {
             name = [NSString stringWithFormat:@"0x%x", (int) currentThread];
@@ -157,8 +160,8 @@ static inline ThreadProfileData* threadData()
     if (it == threads->end()) {
         // We are not yet in the map.
         @synchronized (@"cc_profiler_thread_map") {
-            ThreadMap* newThreadMap = new ThreadMap(*THREADS);
-            ThreadProfileData* thisThread = new ThreadProfileData();
+            ThreadMap *newThreadMap = new ThreadMap(*THREADS);
+            ThreadProfileData *thisThread = new ThreadProfileData();
             (*newThreadMap)[pthread_self()] = thisThread;
 
             // NOTE: We let the old one leak, in case it's still in use by another thread.  It's not much memory.
@@ -201,11 +204,11 @@ CCStackProfiler::~CCStackProfiler()
 
 @implementation CCInstrumentingProfiler
 
-+ (void) messageThreadMain;
++ (void)messageThreadMain;
 {
     int pid = [[NSProcessInfo processInfo] processIdentifier];
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString * docPath = [[paths objectAtIndex:0] stringByAppendingFormat:@"/profile-%d", pid];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [[paths objectAtIndex:0] stringByAppendingFormat:@"/profile-%d", pid];
     NSLog(@"Writing profiler data to %@", docPath);
     FILE *output = fopen([docPath UTF8String], "w");
 
