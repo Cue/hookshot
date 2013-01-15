@@ -46,6 +46,6 @@ We're always happy to receive pull requests!
 
 ## License
 
-Copyright 2012 The scales Authors.
+Copyright 2012 The hookshot Authors.
 
 Published under The Apache License, see LICENSE
