@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 
-#ifdef GREPLIN_DEBUG
+#ifdef HOOKSHOT_ENABLED
 
 @interface CCInstanceMessageInstrumentation : NSObject
 

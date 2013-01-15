@@ -6,13 +6,12 @@
 //  Copyright 2012 Greplin, Inc. All rights reserved.
 //
 
-#ifdef GREPLIN_DEBUG
-
 #import "CCInstrumentingProfiler.h"
 #import "CCInstanceMessageInstrumentation.h"
 
 #import <objc/runtime.h>
 #import <sys/time.h>
+#import <pthread.h>
 
 #import <map>
 #import <vector>
@@ -261,5 +260,3 @@ CCStackProfiler::~CCStackProfiler()
 }
 
 @end
-
-#endif

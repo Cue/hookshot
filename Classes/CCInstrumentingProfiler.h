@@ -7,7 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 
-#ifdef GREPLIN_DEBUG
+#ifdef HOOKSHOT_ENABLED
 
 #define CHECKPOINT(s) [CCInstrumentingProfiler addCheckpoint:s]
 

@@ -9,18 +9,11 @@
 #ifndef __CCNativeCountInstances_H_
 #define __CCNativeCountInstances_H_
 
-#ifdef GREPLIN_DEBUG
-#define CC_NATIVE_COUNT
-#endif
-
-// Really verbose. Turn back on when needed.
-#undef CC_NATIVE_COUNT
-
 #include <string>
 
 class CCNativeCountInstances {
 
-#ifdef CC_NATIVE_COUNT
+#ifdef HOOKSHOT_ENABLED
 private:
     std::string _className;
 #endif

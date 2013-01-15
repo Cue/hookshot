@@ -21,7 +21,6 @@ static NSCountedSet *_classCounts = nil;
 
 + (void)countInstances:(Class)class;
 {
-#ifdef GREPLIN_DEBUG
     [CCInstanceMessageInstrumentation instrumentInstanceMessages:class before:^(id obj, Class cls, SEL selector) {
         int count;
         if (selector == @selector(allocWithZone:)) {
@@ -38,7 +37,6 @@ static NSCountedSet *_classCounts = nil;
             NSLog(@"%s: %d (after dealloc)", class_getName(cls), count);
         }
     } after:nil except:nil];
-#endif
 }
 
 + (int)getCountForTesting:(Class)cls;

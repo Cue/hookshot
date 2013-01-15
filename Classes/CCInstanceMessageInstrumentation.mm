@@ -7,7 +7,6 @@
 //
 
 // This should never be used in production.
-#ifdef GREPLIN_DEBUG
 
 #import "CCInstanceMessageInstrumentation.h"
 #import "CCReflection.h"
@@ -256,5 +255,3 @@ static inline void runCallbacks(
 }
 
 @end
-
-#endif

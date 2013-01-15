@@ -5,9 +5,9 @@
 //  Copyright (c) 2012 Cue, Inc. All rights reserved.
 
 #include "CCNativeCountInstances.h"
+#include <Foundation/Foundation.h>
 #include <map>
-
-#ifdef CC_NATIVE_COUNT
+#include <pthread.h>
 
 static std::map<std::string, volatile int *> _countMap;
 static std::map<std::string, volatile int *> _deleteMap;
@@ -45,10 +45,3 @@ CCNativeCountInstances::~CCNativeCountInstances()
     
     NSLog(@"[dealloc] %s: %d (%d - %d)", _className.c_str(), (*add) - (*del), (*add), (*del));
 }
-
-#else
-
-CCNativeCountInstances::CCNativeCountInstances(const char *className) { }
-CCNativeCountInstances::~CCNativeCountInstances() {}
-
-#endif
