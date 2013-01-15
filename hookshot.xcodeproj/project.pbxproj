@@ -23,6 +23,7 @@
 		6F56835716A4EBAF004D7B09 /* CCInstrumentingProfiler.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F56834316A4E899004D7B09 /* CCInstrumentingProfiler.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		6F56835816A4EBAF004D7B09 /* CCNativeCountInstances.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F56834516A4E899004D7B09 /* CCNativeCountInstances.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		6F56835916A4EBAF004D7B09 /* CCReflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F56834716A4E899004D7B09 /* CCReflection.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		6FDA068016A5EA5400232D8B /* hookshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDA067F16A5EA5400232D8B /* hookshot.h */; };
 		6FF0F54F16A5402C001C01E2 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF0F54E16A5402C001C01E2 /* libc++.dylib */; };
 		6FF0F55016A54035001C01E2 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF0F54E16A5402C001C01E2 /* libc++.dylib */; };
 /* End PBXBuildFile section */
@@ -69,8 +70,8 @@
 		6F56834F16A4E9EC004D7B09 /* CCCountInstancesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCountInstancesTest.m; sourceTree = "<group>"; };
 		6F56835016A4E9EC004D7B09 /* CCInstanceMessageInstrumentationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCInstanceMessageInstrumentationTest.h; sourceTree = "<group>"; };
 		6F56835116A4E9EC004D7B09 /* CCInstanceMessageInstrumentationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCInstanceMessageInstrumentationTest.m; sourceTree = "<group>"; };
+		6FDA067F16A5EA5400232D8B /* hookshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hookshot.h; path = Classes/hookshot.h; sourceTree = SOURCE_ROOT; };
 		6FF0F54E16A5402C001C01E2 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		6FF0F5AE16A548C4001C01E2 /* hookshot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hookshot.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +130,7 @@
 		6F56831516A4E7DB004D7B09 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6FDA067F16A5EA5400232D8B /* hookshot.h */,
 				6F56833F16A4E899004D7B09 /* CCCountInstances.h */,
 				6F56834016A4E899004D7B09 /* CCCountInstances.m */,
 				6F56834116A4E899004D7B09 /* CCInstanceMessageInstrumentation.h */,
@@ -139,7 +141,6 @@
 				6F56834616A4E899004D7B09 /* CCNativeCountInstances.mm */,
 				6F56834716A4E899004D7B09 /* CCReflection.h */,
 				6F56834816A4E899004D7B09 /* CCReflection.m */,
-				6FF0F5AE16A548C4001C01E2 /* hookshot.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -177,6 +178,7 @@
 				6F56835716A4EBAF004D7B09 /* CCInstrumentingProfiler.h in Headers */,
 				6F56835816A4EBAF004D7B09 /* CCNativeCountInstances.h in Headers */,
 				6F56835916A4EBAF004D7B09 /* CCReflection.h in Headers */,
+				6FDA068016A5EA5400232D8B /* hookshot.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
