@@ -17,6 +17,15 @@
 #import "CCCountInstancesTest.h"
 #import "CCCountInstances.h"
 
+
+@interface CCCountInstances (Private)
+
++ (int)countForTesting:(Class)cls;
+
+@end
+
+
+
 static BOOL dealloc1WasCalled = NO;
 static BOOL dealloc2WasCalled = NO;
 
@@ -84,34 +93,34 @@ static BOOL dealloc2WasCalled = NO;
 - (void)testClassWithNoDealloc;
 {
     id obj = [[CCClassWithNoDealloc alloc] init];
-    STAssertEquals(1, [CCCountInstances getCountForTesting:[CCClassWithNoDealloc class]], @"should count instance");
+    STAssertEquals(1, [CCCountInstances countForTesting:[CCClassWithNoDealloc class]], @"should count instance");
     [obj release];
-    STAssertEquals(0, [CCCountInstances getCountForTesting:[CCClassWithNoDealloc class]], @"should remove instance");
+    STAssertEquals(0, [CCCountInstances countForTesting:[CCClassWithNoDealloc class]], @"should remove instance");
 }
 
 - (void)testClassWithDealloc;
 {
     id obj = [[CCClassWithDealloc1 alloc] init];
-    STAssertEquals(1, [CCCountInstances getCountForTesting:[CCClassWithDealloc1 class]], @"should count instance");
+    STAssertEquals(1, [CCCountInstances countForTesting:[CCClassWithDealloc1 class]], @"should count instance");
     [obj release];
-    STAssertEquals(0, [CCCountInstances getCountForTesting:[CCClassWithDealloc1 class]], @"should remove instance");
+    STAssertEquals(0, [CCCountInstances countForTesting:[CCClassWithDealloc1 class]], @"should remove instance");
     STAssertTrue(dealloc1WasCalled, @"should set the dealloc bit");
 }
 
 - (void)testMultipleClassesWithDealloc;
 {
     id obj1 = [[CCClassWithDealloc1 alloc] init];
-    STAssertEquals(1, [CCCountInstances getCountForTesting:[CCClassWithDealloc1 class]], @"should count instance");
+    STAssertEquals(1, [CCCountInstances countForTesting:[CCClassWithDealloc1 class]], @"should count instance");
 
     id obj2 = [[CCClassWithDealloc2 alloc] init];
-    STAssertEquals(1, [CCCountInstances getCountForTesting:[CCClassWithDealloc2 class]], @"should count instance");
+    STAssertEquals(1, [CCCountInstances countForTesting:[CCClassWithDealloc2 class]], @"should count instance");
 
     [obj2 release];
-    STAssertEquals(0, [CCCountInstances getCountForTesting:[CCClassWithDealloc2 class]], @"should remove instance");
+    STAssertEquals(0, [CCCountInstances countForTesting:[CCClassWithDealloc2 class]], @"should remove instance");
     STAssertTrue(dealloc2WasCalled, @"should set the dealloc bit");
 
     [obj1 release];
-    STAssertEquals(0, [CCCountInstances getCountForTesting:[CCClassWithDealloc1 class]], @"should remove instance");
+    STAssertEquals(0, [CCCountInstances countForTesting:[CCClassWithDealloc1 class]], @"should remove instance");
     STAssertTrue(dealloc1WasCalled, @"should set the dealloc bit");
 }
 

@@ -25,8 +25,6 @@
 
 + (void)countInstances:(Class)cls;
 
-+ (int)countForTesting:(Class)cls;
-
 @end
 
 #endif

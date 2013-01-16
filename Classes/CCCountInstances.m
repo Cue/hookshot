@@ -51,7 +51,7 @@ static NSCountedSet *_classCounts = nil;
     } after:nil except:nil];
 }
 
-+ (int)getCountForTesting:(Class)cls;
++ (int)countForTesting:(Class)cls;
 {
     @synchronized (_classCounts) {
         return [_classCounts countForObject:cls];
