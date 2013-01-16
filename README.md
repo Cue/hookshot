@@ -40,9 +40,9 @@ Once you've [installed](/Cue/hookshot/blob/master/Documentation/INSTALL.md) hook
 Early in your application's run, you can instrument any classes you want to measure performance of:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
-PROFILE_CLASS([AppDelegate class]);
-PROFILE_CLASS([UIWebView class]);
-PROFILE_CLASS_EXCEPT([AnotherClass class],
+HOOKSHOT_PROFILE_CLASS([AppDelegate class]);
+HOOKSHOT_PROFILE_CLASS([UIWebView class]);
+HOOKSHOT_PROFILE_CLASS_EXCEPT([AnotherClass class],
     [NSValue valueWithPointer:@selector(someFrequentlyCalledSelector)],
     [NSValue valueWithPointer:@selector(anotherFrequentlyCalledSelector)])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -179,7 +179,7 @@ AppDelegate.viewController                                1         0.004ms     
 You can use hookshot to track how many instances of a given class are live.
 
 ~~~~~~~~~~~~
-COUNT_INSTANCES(cls);
+HOOKSHOT_COUNT_INSTANCES(cls);
 ~~~~~~~~~~~~
 
 It's best to install this hook in your AppDelegate `initialize` or in the `initialize` of the class you want to count instances of.
@@ -205,7 +205,7 @@ class ClassName {
 write
 
 ~~~~~~~~~~~~.cpp
-COUNTED_CPP_CLASS(X) {
+HOOKSHOT_COUNTED_CPP_CLASS(X) {
   ...
 }
 ~~~~~~~~~~~~
@@ -213,7 +213,7 @@ COUNTED_CPP_CLASS(X) {
 In your implementation file, at the top, add:
 
 ~~~~~~~~~~~~
-COUNTED_CPP_CLASS_IMPLEMENTATION_PREAMBLE(ClassName)
+HOOKSHOT_COUNTED_CPP_CLASS_IMPLEMENTATION_PREAMBLE(ClassName)
 ~~~~~~~~~~~~
 
 ## Generic Instrumentation
