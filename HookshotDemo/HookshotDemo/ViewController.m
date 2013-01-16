@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "hookshot.h"
 
 @implementation ViewController
 
@@ -15,6 +16,7 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+    _webView.delegate = self;
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.cueup.com"]]];
 }
 
@@ -22,6 +24,16 @@
 {
     [super dealloc];
     [_webView release];
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView;
+{
+    CHECKPOINT(@"didStartLoad");
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
+{
+    CHECKPOINT(@"didFinishLoad");
 }
 
 @end

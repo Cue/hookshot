@@ -35,13 +35,23 @@ body {
 }
 
 .checkpoint {
+  position: absolute;
+  top: 0;
+  margin-left: 300px;
   padding-left: 5px;
   border-left: 1px solid red;
-  z-index: -1;
+  z-index: 1;
+  color: red;
+  height: 100%;
+  padding-top: 32px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .checkpoint div {
   font-size: 13px;
+  background: white;
 }
 
 .event.tag0 {
@@ -86,14 +96,18 @@ body {
   width: 100%;
   background: #ccc;
   border-bottom: 1px solid #333;
-  z-index: 1;
+  z-index: 3;
   text-align: center;
 }
 
 #root {
   overflow: visible;
-  padding-top: 30px;
+  padding-top: 45px;
   width: 100%;
+  min-height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #controls {
@@ -102,7 +116,8 @@ body {
   height: 100%;
   background: white;
   border-right: 1px solid black;
-  padding-top: 30px;
+  padding-top: 45px;
+  z-index: 2;
 }
 
 div {

@@ -11,7 +11,7 @@
 /**
  * View controller for the demo.
  */
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController <UIWebViewDelegate> {
     UIWebView *_webView;
 }
 
