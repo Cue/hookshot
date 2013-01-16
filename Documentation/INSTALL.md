@@ -1,5 +1,6 @@
 # hookshot installation
 
+
 ## Get the code
 
 If you're using git 1.8, you can use `git subtree` for easy inclusion of the hookshot codebase:
@@ -26,6 +27,18 @@ git subtree pull --prefix=path/within/repo/for/hookshot --squash \
 and then submit your pull request from your forked repo.
 
 Alternately, just download all the files in `Classes`, `bin`, and `hookshot.xcodeproj` and save them in a convenient place.
+
+=======
+
+## Install Python dependencies
+
+In your Terminal:
+
+~~~~~~~~~~~~~~~~~~~.bash
+pip install argparse
+pip install flask
+~~~~~~~~~~~~~~~~~~~
+
 
 ## Add to your project
 
@@ -70,6 +83,7 @@ Select your root project.  For each the target you want to use hookshot with
 ![Link libraries](https://raw.github.com/Cue/hookshot/master/Documentation/Images/LinkLibraries.png)
 
 You're now ready to start using hookshot!
+
 
 ## Instrument your code
 
