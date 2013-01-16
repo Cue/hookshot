@@ -196,7 +196,7 @@ You can also instance count for C++ classes, but only if they have no super clas
 
 When you define your class, instead of
 
-~~~~~~~~~~~~
+~~~~~~~~~~~~.cpp
 class ClassName {
   ...
 }
@@ -204,7 +204,7 @@ class ClassName {
 
 write
 
-~~~~~~~~~~~~
+~~~~~~~~~~~~.cpp
 COUNTED_CPP_CLASS(X) {
   ...
 }
