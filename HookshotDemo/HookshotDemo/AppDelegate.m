@@ -21,6 +21,7 @@
     if ([[[[NSProcessInfo processInfo] environment] objectForKey:@"HookshotProfile"] isEqualToString:@"YES"]) {
         PROFILE_CLASS(self);
         PROFILE_CLASS([UIWebView class]);
+        COUNT_INSTANCES([UIImage class]);
     }
 }
 

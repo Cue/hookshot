@@ -35,6 +35,8 @@
 
 #define PROFILE_CPP_FUNCTION(className, name) CCStackProfiler __cc_stack_instrumenter__(className, name)
 
+#define COUNT_INSTANCES(c) [CCCountInstances countInstances:c]
+
 #define COUNTED_CPP_CLASS(className) \
 class className; \
 template <> \
@@ -63,6 +65,8 @@ const std::string& CCNativeCountClassNameTrait<className>::name = #className; \
 #define TAG(o, s)
 
 #define PROFILE_CPP_FUNCTION(className, name)
+
+#define COUNT_INSTANCES(c)
 
 #define COUNTED_CPP_CLASS(className) \
 class className
