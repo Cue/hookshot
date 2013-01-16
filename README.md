@@ -4,7 +4,7 @@
 
 hookshot uses Objective C runtime hooks to help you understand where your app is spending its time.
 
-Dig in to your application activity visually:
+Dig into your application activity visually:
 
 ![The snapshot server](https://raw.github.com/Cue/hookshot/master/Documentation/Images/SnapshotServer.png)
 

@@ -27,7 +27,6 @@ and then submit your pull request from your forked repo.
 
 Alternately, just download all the files in `Classes`, `bin`, and `hookshot.xcodeproj` and save them in a convenient place.
 
-
 ## Add to your project
 
 Open Finder, navigate to `hookshot.xcodeproj`, and drag it in to your project:
