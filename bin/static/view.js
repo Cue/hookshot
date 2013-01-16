@@ -3,15 +3,14 @@ var FONT_SIZE = 1.25;
 var ROOT, DATA_POINTS;
 var TAGS = {};
 var TAG_OFFSET = 0;
+var ROW_HEIGHT = 38;
+
+var levels = [];
+var rows = [];
+var controlRows = [];
 
 function div() {
-  var out = document.createElement('DIV');
-  out.style.position = 'absolute';
-  return out;
-}
-
-function topPx(i) {
-  return 20 + (i * 70) + 'px';
+  return document.createElement('DIV');
 }
 
 function leftEm(t) {
@@ -46,10 +45,9 @@ function renderItems(array, threadName, threadNumber, path) {
     var item = array[j];
     var child = div();
     child.className = 'event';
-    child.style.top = topPx(threadNumber);
     child.style.left = leftEm(item.start);
     child.style.width = widthEm(item.finish - item.start);
-    child.style.marginTop = (count * 4) + 'px';
+    child.style.marginTop = (count * 8) + 'px';
     if (item.tag) {
       if (!(item.tag in TAGS)) {
         TAGS[item.tag] = TAG_OFFSET++;
@@ -64,14 +62,22 @@ function renderItems(array, threadName, threadNumber, path) {
     if (item.tag) {
       text += ' #' + item.tag;
     }
-    name.innerText = text;
+    name.appendChild(document.createTextNode(text));
     child.appendChild(name);
 
     child._thread = threadName;
     child._threadNumber = threadNumber;
     child._path = path ? (path + '.' + j) : ('' + j);
 
-    DATA_POINTS.appendChild(child);
+    rows[threadNumber].appendChild(child);
+  }
+  
+  if (j) {
+    if (count > levels[threadNumber]) {
+      levels[threadNumber] = count;
+      rows[threadNumber].style.height = (ROW_HEIGHT + 8 * count) + 'px';
+      controlRows[threadNumber].style.height = (ROW_HEIGHT + 8 * count) + 'px';
+    }
   }
   return max;
 }
@@ -80,12 +86,21 @@ $(function() {
   document.body.style.padding = '0';
   document.body.style.margin = '0';
 
+  $('#in').click(function() {
+    FONT_SIZE *= 1.25;
+    ROOT.style.fontSize = FONT_SIZE + 'em';
+  });
+
+  $('#out').click(function() {
+    FONT_SIZE *= 0.8;
+    ROOT.style.fontSize = FONT_SIZE + 'em';
+  });
+
   ROOT = div();
-  ROOT.style.left = '300px';
-  ROOT.style.overflow = 'visible';
+  ROOT.id = 'root';
   ROOT.style.fontSize = FONT_SIZE + 'em';
   document.body.appendChild(ROOT);
-
+  
   DATA_POINTS = div();
   DATA_POINTS.style.overflow = 'visible';
   ROOT.appendChild(DATA_POINTS);
@@ -94,11 +109,7 @@ $(function() {
 
   $.ajax('/data', {'dataType': 'json'}).done(function(data) {
     var controls = div();
-    controls.style.position = 'fixed';
-    controls.style.width = '290px';
-    controls.style.height = '100%';
-    controls.style.background = 'white';
-    controls.style.borderRight = '1px solid black';
+    controls.id = 'controls';
     document.body.appendChild(controls);
 
     var threads = data.threads;
@@ -121,68 +132,43 @@ $(function() {
       }
     });
     for (var index = 0; index < keys.length; index++) {
+      levels[0] = 0;
+      
       key = keys[index];
-      var d = div();
-      d.style.left = '5px';
-      d.style.top = topPx(index);
-      d.innerText = key;
-      controls.appendChild(d);
+      rows[index] = div();
+      rows[index].className = 'row shade' + (index % 2);
+      rows[index].style.height = ROW_HEIGHT + 'px';
+      ROOT.appendChild(rows[index]);
+      
+      controlRows[index] = div();
+      controlRows[index].className = 'row shade' + (index % 2);
+      controlRows[index].style.height = ROW_HEIGHT + 'px';
+      controlRows[index].appendChild(document.createTextNode(key));
+      controls.appendChild(controlRows[index]);
 
       max = Math.max(renderItems(threads[key], key, index, ''), max);
     }
-
-    var zoomIn = div();
-    zoomIn.style.top = topPx(keys.length);
-    zoomIn.style.left = '5px';
-    zoomIn.style.padding = '3px 5px';
-    zoomIn.innerText = '+';
-    zoomIn.style.background = '#eee';
-    zoomIn.style.border = '1px solid #444';
-    controls.appendChild(zoomIn);
-    $(zoomIn).click(function() {
-      FONT_SIZE *= 1.25;
-      ROOT.style.fontSize = FONT_SIZE + 'em';
-    });
-
-    var zoomOut = div();
-    zoomOut.style.top = topPx(keys.length);
-    zoomOut.style.left = '35px';
-    zoomOut.style.padding = '3px 5px';
-    zoomOut.innerText = '-';
-    zoomOut.style.background = '#eee';
-    zoomOut.style.border = '1px solid #444';
-    controls.appendChild(zoomOut);
-    $(zoomOut).click(function() {
-      FONT_SIZE *= 0.8;
-      ROOT.style.fontSize = FONT_SIZE + 'em';
-    });
-
+    
     for (var offset = 0; offset < max; offset += 250000) {
       var second = div();
-      second.style.top = 0;
-      second.style.height = topPx(keys.length + 1);
-      second.style.width = '1px';
-      second.style.borderLeft = '1px dashed ' + ((offset + 250000) % 1000000 ? '#bbb' : '#222');
+      second.className = 'time ' + ((offset + 250000) % 1000000 ? 'quarter' : 'second');
       second.style.left = leftEm(offset + 250000);
       ROOT.appendChild(second);
+    }
+    for (var index = 0; index < keys.length; index++) {
+      rows[index].style.width = leftEm(offset);
     }
 
     for (var i = 0; i < data.checkpoints.length; i++) {
       var line = div();
       line.className = 'checkpoint';
-      line.style.height = topPx(keys.length + 1);
-      line.style.paddingTop = parseInt(topPx(keys.length + 1)) + (i % 2) * 20 + 'px';
+      line.style.height = '100%';
+      // TODO: robbyw
+      // line.style.paddingTop = parseInt(topPx(keys.length + 1)) + (i % 2) * 20 + 'px';
       line.style.left = leftEm(data.checkpoints[i].time);
       line.appendChild(div());
-      line.firstChild.innerText = data.checkpoints[i].text;
+      line.firstChild.appendChild(document.createTextNode(data.checkpoints[i].text));
       ROOT.appendChild(line);
     }
-
-    var extra = div();
-    extra.style.top = 0;
-    extra.style.height = '100px';
-    extra.style.left = leftEm(max);
-    extra.style.width = '300px';
-    ROOT.appendChild(extra);
   });
 });

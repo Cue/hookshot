@@ -3,75 +3,160 @@ body {
 }
 
 .event {
-    border-left: 1px solid #888;
-    border-right: 1px solid #888;
-    overflow: hidden;
-    height: 14px;
-    background: #aaa;
+  top: 11px;
+  border-left: 1px solid #888;
+  border-right: 1px solid #888;
+  overflow: hidden;
+  height: 14px;
+  background: #aaa;
+  margin-left: 300px;
 }
 
 .event:hover {
-    margin-top: -2px;
-    margin-left: -2px;
-    border: 2px solid #fb7;
-    z-index: 1000;
-    overflow: visible;
+  margin-top: -2px;
+  margin-left: -2px;
+  border: 2px solid #fb7;
+  z-index: 1000;
+  overflow: visible;
+  margin-left: 300px;
 }
 
 .event span {
-    display: none;
-    margin-top: 18px;
-    width: 280px;
-    font-size: 13px;
-    background: #fed;
-    word-wrap: break-word;
+  display: none;
+  margin-top: 18px;
+  width: 280px;
+  font-size: 13px;
+  background: #fed;
+  word-wrap: break-word;
 }
 
 .event:hover span {
-    display: block;
+  display: block;
 }
 
 .checkpoint {
-    padding-left: 5px;
-    border-left: 1px solid red;
-    z-index: -1;
+  padding-left: 5px;
+  border-left: 1px solid red;
+  z-index: -1;
 }
 
 .checkpoint div {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .event.tag0 {
-    background: #ada;
-    border-color: #8a8;
+  background: #ada;
+  border-color: #8a8;
 }
 
 .event.tag1 {
-    background: #aad;
-    border-color: #88a;
+  background: #aad;
+  border-color: #88a;
 }
 
 .event.tag2 {
-    background: #f9eeaa;
-    border-color: #cb8;
+  background: #f9eeaa;
+  border-color: #cb8;
 }
 
 .event.tag3 {
-    background: #dad;
-    border-color: #a8a;
+  background: #dad;
+  border-color: #a8a;
 }
 
 .event.tag4 {
-    background: #daa;
-    border-color: #a88;
+  background: #daa;
+  border-color: #a88;
 }
 
 .event.tag5 {
-    background: #add;
-    border-color: #8aa;
+  background: #add;
+  border-color: #8aa;
 }
 
 .event.tag6 {
-    background: #fca;
-    border-color: #ca8;
+  background: #fca;
+  border-color: #ca8;
+}
+
+#toolbar {
+  position: fixed;
+  top: 0;
+  height: 24px;
+  width: 100%;
+  background: #ccc;
+  border-bottom: 1px solid #333;
+  z-index: 1;
+  text-align: center;
+}
+
+#root {
+  overflow: visible;
+  padding-top: 30px;
+  width: 100%;
+}
+
+#controls {
+  position: fixed;
+  width: 290px;
+  height: 100%;
+  background: white;
+  border-right: 1px solid black;
+  padding-top: 30px;
+}
+
+div {
+  position: absolute;
+}
+
+#hookshot {
+  font-weight: bold;
+  left: 10px;
+  top: 3px;
+}
+
+#zoom {
+  margin: 0 auto;
+  right: 10px;
+  top: 3px;
+}
+
+#toolbar button {
+  position: relative;
+  top: -2px;
+}
+
+#root .row {
+  padding-right: 300px;
+}
+
+.row {
+  position: relative;
+  width: 100%;
+}
+  
+#controls .row {
+  padding: 10px 0 0 10px;  
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.shade1 {
+  background: #eee;
+}
+
+.time {
+  top: 0;
+  height: 100%;
+  width: 1px;
+  margin-left: 300px;
+}
+
+.quarter {
+  border-left: 1px dashed #bbb;
+}
+
+.second {
+  border-left: 1px dashed #222;
 }
