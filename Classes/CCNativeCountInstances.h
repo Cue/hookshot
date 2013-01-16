@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-#ifndef __CCNativeCountInstances_H_
-#define __CCNativeCountInstances_H_
-
 #ifdef HOOKSHOT_ENABLED
 
 #ifdef __cplusplus
@@ -82,5 +79,3 @@ CCNativeCountInstances<T>::~CCNativeCountInstances()
 #endif // __cplusplus
 
 #endif // HOOKSHOT_ENABLED
-
-#endif // __CCNativeCountInstances_H_
