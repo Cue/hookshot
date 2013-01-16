@@ -23,19 +23,19 @@
 
 // Definitions for when hookshot is enabled.
 
-#define PROFILE_CLASS(c) [CCInstrumentingProfiler profileClass:c];
+#define PROFILE_CLASS(c) [CCInstrumentingProfiler profileClass:(c)];
 
-#define PROFILE_CLASS_EXCEPT(c, ...) [CCInstrumentingProfiler profileClass:c except: @[ __VA_ARGS__ ]]
+#define PROFILE_CLASS_EXCEPT(c, ...) [CCInstrumentingProfiler profileClass:(c) except: @[ __VA_ARGS__ ]]
 
-#define PREVENT_INSTRUMENTATION(c, s) [CCInstanceMessageInstrumentation preventInstrumentation:c selector:s]
+#define PREVENT_INSTRUMENTATION(c, s) [CCInstanceMessageInstrumentation preventInstrumentation:(c) selector:(s)]
 
-#define CHECKPOINT(s) [CCInstrumentingProfiler addCheckpoint:s]
+#define CHECKPOINT(s) [CCInstrumentingProfiler addCheckpoint:(s)]
 
-#define TAG(o, s) [CCInstrumentingProfiler setTag:s forObject:o]
+#define TAG(o, s) [CCInstrumentingProfiler setTag:(s) forObject:(o)]
 
-#define PROFILE_CPP_FUNCTION(className, name) CCStackProfiler __cc_stack_instrumenter__(className, name)
+#define PROFILE_CPP_FUNCTION(className, name) CCStackProfiler __cc_stack_instrumenter__((className), (name))
 
-#define COUNT_INSTANCES(c) [CCCountInstances countInstances:c]
+#define COUNT_INSTANCES(c) [CCCountInstances countInstances:(c)]
 
 #define COUNTED_CPP_CLASS(className) \
 class className; \
