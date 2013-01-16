@@ -4,13 +4,30 @@
 
 hookshot uses Objective C runtime hooks to help you understand where your app is spending its time.
 
+Dig in to your application activity visually:
+
 ![The snapshot server](https://raw.github.com/Cue/hookshot/master/Documentation/Images/SnapshotServer.png)
 
-**hookshot uses undocumented Apple APIs.**  This is necessary for profiling and debugging, but will get your application rejected during App Store review if hookshot makes it in to production code.  Follow the installation instructions to ensure hookshot is properly configured.
+or drill in on stats:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$ bin/profile.py
+Using /Users/robbywalker/Library/Application Support/iPhone Simulator/6.0/Applications/C1FB13C1-C230-4435-8A10-F7BED5A6B475/Documents/profile-23274
+message                                                                              calls     ownTime       avgOwn      maxOwn         total
+AppDelegate.doSomethingExpensive                                                     27        562.433ms     20.8309ms   21.1630ms      562.433ms
+UIWebView.webView:decidePolicyForNavigationAction:request:frame:decisionListener:    2         19.480ms      9.7400ms    19.4440ms      20.110ms
+UIWebView._webViewCommonInitWithWebView:scalesPageToFit:shouldEnableReachability:    1         11.725ms      11.7250ms   11.7250ms      12.780ms
+AppDelegate.application:didFinishLaunchingWithOptions:                               1         7.913ms       7.9130ms    7.9130ms       25.179ms
+...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## hookshot uses undocumented Apple APIs.
+
+We'll say it again: **hookshot uses undocumented Apple APIs.**  This is necessary for profiling and debugging, but will get your application rejected during App Store review if hookshot makes it in to production code.  Follow the installation instructions to ensure hookshot is properly configured to be one big NOOP for release builds.
 
 ## Installation
 
-[Step-by-step installation instructions](/Cue/hookshot/blob/master/Documentation/INSTALL.md)
+You can get hookshot in your project within about 5 minutes: [step-by-step installation instructions](/Cue/hookshot/blob/master/Documentation/INSTALL.md)
 
 ## Profiling
 
