@@ -105,6 +105,6 @@ We recommend creating a special scheme for running with profiling turned on.  We
 
 ![Manage Schemes](https://raw.github.com/Cue/hookshot/master/Documentation/Images/ManageSchemes.png)
 
-![Hookshot scheme](https://raw.github.com/Cue/hookshot/master/Documentation/Images/HookshotSchemes.png)
+![Hookshot scheme](https://raw.github.com/Cue/hookshot/master/Documentation/Images/HookshotScheme.png)
 
-More information on how to use hookshot in your code is available in the [README](/Cue/hookshot)
+More information on how to use hookshot in your code is available in the [README](/Cue/hookshot/blob/master/README.md).
