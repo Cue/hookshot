@@ -4,7 +4,7 @@
 
 hookshot uses Objective C runtime hooks to help you understand where your app is spending its time.
 
-(screenshot of thread dump + profile results)
+![The snapshot server](https://raw.github.com/Cue/hookshot/master/Documentation/Images/SnapshotServer.png)
 
 **hookshot uses undocumented Apple APIs.**  This is necessary for profiling and debugging, but will get your application rejected during App Store review if hookshot makes it in to production code.  Follow the installation instructions to ensure hookshot is properly configured.
 
