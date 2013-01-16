@@ -23,21 +23,22 @@
 
 // Definitions for when hookshot is enabled.
 
-#define PROFILE_CLASS(c) [CCInstrumentingProfiler profileClass:(c)];
+#define HOOKSHOT_PROFILE_CLASS(c) [CCInstrumentingProfiler profileClass:(c)];
 
-#define PROFILE_CLASS_EXCEPT(c, ...) [CCInstrumentingProfiler profileClass:(c) except: @[ __VA_ARGS__ ]]
+#define HOOKSHOT_PROFILE_CLASS_EXCEPT(c, ...) [CCInstrumentingProfiler profileClass:(c) except: @[ __VA_ARGS__ ]]
 
-#define PREVENT_INSTRUMENTATION(c, s) [CCInstanceMessageInstrumentation preventInstrumentation:(c) selector:(s)]
+#define HOOKSHOT_PREVENT_INSTRUMENTATION(c, s) \
+    [CCInstanceMessageInstrumentation preventInstrumentation:(c) selector:(s)]
 
-#define CHECKPOINT(s) [CCInstrumentingProfiler addCheckpoint:(s)]
+#define HOOKSHOT_CHECKPOINT(s) [CCInstrumentingProfiler addCheckpoint:(s)]
 
-#define TAG(o, s) [CCInstrumentingProfiler setTag:(s) forObject:(o)]
+#define HOOKSHOT_TAG(o, s) [CCInstrumentingProfiler setTag:(s) forObject:(o)]
 
-#define PROFILE_CPP_FUNCTION(className, name) CCStackProfiler __cc_stack_instrumenter__((className), (name))
+#define HOOKSHOT_PROFILE_CPP_FUNCTION(className, name) CCStackProfiler __cc_stack_instrumenter__((className), (name))
 
-#define COUNT_INSTANCES(c) [CCCountInstances countInstances:(c)]
+#define HOOKSHOT_COUNT_INSTANCES(c) [CCCountInstances countInstances:(c)]
 
-#define COUNTED_CPP_CLASS(className) \
+#define HOOKSHOT_COUNTED_CPP_CLASS(className) \
 class className; \
 template <> \
 struct CCNativeCountClassNameTrait<className> \
@@ -46,7 +47,7 @@ struct CCNativeCountClassNameTrait<className> \
 }; \
 class className : public CCNativeCountInstances<CCNativeCountClassNameTrait<className>>
 
-#define COUNTED_CPP_CLASS_IMPLEMENTATION_PREAMBLE(className) \
+#define HOOKSHOT_COUNTED_CPP_CLASS_IMPLEMENTATION_PREAMBLE(className) \
 const std::string& CCNativeCountClassNameTrait<className>::name = #className; \
 
 
@@ -54,23 +55,23 @@ const std::string& CCNativeCountClassNameTrait<className>::name = #className; \
 
 // No-op definitions for when hookshot is not enabled.
 
-#define PROFILE_CLASS(c)
+#define HOOKSHOT_PROFILE_CLASS(c)
 
-#define PROFILE_CLASS_EXCEPT(c, e, ...)
+#define HOOKSHOT_PROFILE_CLASS_EXCEPT(c, e, ...)
 
-#define PREVENT_INSTRUMENTATION(c, s)
+#define HOOKSHOT_PREVENT_INSTRUMENTATION(c, s)
 
-#define CHECKPOINT(s)
+#define HOOKSHOT_CHECKPOINT(s)
 
-#define TAG(o, s)
+#define HOOKSHOT_TAG(o, s)
 
-#define PROFILE_CPP_FUNCTION(className, name)
+#define HOOKSHOT_PROFILE_CPP_FUNCTION(className, name)
 
-#define COUNT_INSTANCES(c)
+#define HOOKSHOT_COUNT_INSTANCES(c)
 
-#define COUNTED_CPP_CLASS(className) \
+#define HOOKSHOT_COUNTED_CPP_CLASS(className) \
 class className
 
-#define COUNTED_CPP_CLASS_IMPLEMENTATION_PREAMBLE(className)
+#define HOOKSHOT_COUNTED_CPP_CLASS_IMPLEMENTATION_PREAMBLE(className)
 
 #endif

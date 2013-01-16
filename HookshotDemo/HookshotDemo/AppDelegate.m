@@ -19,9 +19,9 @@
         return;
     }
     if ([[[[NSProcessInfo processInfo] environment] objectForKey:@"HookshotProfile"] isEqualToString:@"YES"]) {
-        PROFILE_CLASS(self);
-        PROFILE_CLASS([UIWebView class]);
-        COUNT_INSTANCES([UIImage class]);
+        HOOKSHOT_PROFILE_CLASS(self);
+        HOOKSHOT_PROFILE_CLASS([UIWebView class]);
+        HOOKSHOT_COUNT_INSTANCES([UIImage class]);
     }
 }
 

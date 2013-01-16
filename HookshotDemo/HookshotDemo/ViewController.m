@@ -28,12 +28,12 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView;
 {
-    CHECKPOINT(@"didStartLoad");
+    HOOKSHOT_CHECKPOINT(@"didStartLoad");
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
 {
-    CHECKPOINT(@"didFinishLoad");
+    HOOKSHOT_CHECKPOINT(@"didFinishLoad");
 }
 
 @end
