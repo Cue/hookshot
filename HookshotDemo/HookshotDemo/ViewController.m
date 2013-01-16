@@ -12,7 +12,7 @@
 
 @synthesize webView = _webView;
 
-- (void)viewDidLoad
+- (void)viewDidLoad;
 {
     [super viewDidLoad];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.cueup.com"]]];

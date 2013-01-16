@@ -30,6 +30,9 @@ public:
 #endif
 
 
+/**
+ * Static methods for configuring the instrumenting profiler.
+ */
 @interface CCInstrumentingProfiler : NSObject
 
 + (void)profileClass:(Class)cls;

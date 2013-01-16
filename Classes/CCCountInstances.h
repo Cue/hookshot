@@ -18,6 +18,9 @@
 
 #ifdef HOOKSHOT_ENABLED
 
+/**
+ * Instrumentation based instance counting and logging.
+ */
 @interface CCCountInstances : NSObject
 
 + (void)countInstances:(Class)cls;

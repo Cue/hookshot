@@ -16,5 +16,8 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/**
+ * Test for instance message instrumentation.
+ */
 @interface CCInstanceMessageInstrumentationTest : SenTestCase
 @end

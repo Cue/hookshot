@@ -134,12 +134,12 @@ div {
   position: relative;
   width: 100%;
 }
-  
+
 #controls .row {
-  padding: 10px 0 0 10px;  
+  padding: 10px 0 0 10px;
   -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .shade1 {

@@ -19,6 +19,9 @@
 
 #ifdef HOOKSHOT_ENABLED
 
+/**
+ * Static methods for instrumenting classes.
+ */
 @interface CCInstanceMessageInstrumentation : NSObject
 
 + (void)preventInstrumentation:(Class)cls selector:(SEL)selector;

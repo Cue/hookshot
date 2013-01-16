@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * View controller for the demo.
+ */
 @interface ViewController : UIViewController {
     UIWebView *_webView;
 }
 
+/**
+ * A web view shown in the view.
+ */
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 
 @end

@@ -56,10 +56,14 @@ def details(thread, path):
 @APP.route('/')
 def home():
   """Home page."""
-  return '<div id="toolbar"><div id="hookshot">hookshot</div><div id="zoom">Zoom: <button id="in">+</button> <button id="out">-</button>' \
-         '<link rel="stylesheet" href="/static/style.css"/>' \
-         '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>' \
-         '<script src="/static/view.js"></script>'
+  return '''
+<div id="toolbar">
+  <div id="hookshot">hookshot</div>
+  <div id="zoom">Zoom: <button id="in">+</button> <button id="out">-</button></div>
+</div>
+<link rel="stylesheet" href="/static/style.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/static/view.js"></script>'''
 
 
 def run(d):

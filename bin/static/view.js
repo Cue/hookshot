@@ -71,7 +71,7 @@ function renderItems(array, threadName, threadNumber, path) {
 
     rows[threadNumber].appendChild(child);
   }
-  
+
   if (j) {
     if (count > levels[threadNumber]) {
       levels[threadNumber] = count;
@@ -100,7 +100,7 @@ $(function() {
   ROOT.id = 'root';
   ROOT.style.fontSize = FONT_SIZE + 'em';
   document.body.appendChild(ROOT);
-  
+
   DATA_POINTS = div();
   DATA_POINTS.style.overflow = 'visible';
   ROOT.appendChild(DATA_POINTS);
@@ -133,13 +133,13 @@ $(function() {
     });
     for (var index = 0; index < keys.length; index++) {
       levels[0] = 0;
-      
+
       key = keys[index];
       rows[index] = div();
       rows[index].className = 'row shade' + (index % 2);
       rows[index].style.height = ROW_HEIGHT + 'px';
       ROOT.appendChild(rows[index]);
-      
+
       controlRows[index] = div();
       controlRows[index].className = 'row shade' + (index % 2);
       controlRows[index].style.height = ROW_HEIGHT + 'px';
@@ -148,7 +148,7 @@ $(function() {
 
       max = Math.max(renderItems(threads[key], key, index, ''), max);
     }
-    
+
     for (var offset = 0; offset < max; offset += 250000) {
       var second = div();
       second.className = 'time ' + ((offset + 250000) % 1000000 ? 'quarter' : 'second');

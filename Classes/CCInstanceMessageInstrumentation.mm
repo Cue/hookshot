@@ -145,7 +145,7 @@ static inline void runCallbacks(
     return out;
 }
 
-- (BOOL)isEqual:(id)obj
+- (BOOL)isEqual:(id)obj;
 {
     BOOL out;
     [call(self, @selector(isEqual:), &obj) getReturnValue:&out];
@@ -225,7 +225,8 @@ static inline void runCallbacks(
     if (!beforeBlocks.count(cls)) {
         // First instrumentation of this class.
         if (HasOwnClassMethod(cls, @selector(allocWithZone:))) {
-            ClassMethodSwizzle(cls, @selector(instrumentInstanceMessagesSwizzledAllocWithZone:), @selector(allocWithZone:));
+            ClassMethodSwizzle(
+                cls, @selector(instrumentInstanceMessagesSwizzledAllocWithZone:), @selector(allocWithZone:));
         } else {
             ClassMethodCopy(cls, @selector(instrumentInstanceMessagesAddedAllocWithZone:), @selector(allocWithZone:));
         }
@@ -238,7 +239,7 @@ static inline void runCallbacks(
         unsigned int methodCount;
         Class currentClass = cls;
         while (currentClass) {
-            Method * methods = class_copyMethodList(currentClass, &methodCount);
+            Method *methods = class_copyMethodList(currentClass, &methodCount);
             for (unsigned int i = 0; i < methodCount; i++) {
                 char *returnType = method_copyReturnType(methods[i]);
                 if (strchr(returnType, '<') != NULL) {

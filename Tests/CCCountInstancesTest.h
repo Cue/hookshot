@@ -16,5 +16,8 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/**
+ * Test for instance counting.
+ */
 @interface CCCountInstancesTest : SenTestCase
 @end
