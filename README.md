@@ -21,9 +21,24 @@ AppDelegate.application:didFinishLaunchingWithOptions:                          
 ...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-## hookshot uses undocumented Apple APIs
+### hookshot uses undocumented Apple APIs
 
 We'll say it again: **hookshot uses undocumented Apple APIs.**  This is necessary for profiling and debugging, but will get your application rejected during App Store review if hookshot makes it in to production code.  Follow the installation instructions to ensure hookshot is properly configured to be one big NOOP for release builds.
+
+## What is it?
+
+hookshot contains an instrumenting profiler.  Contrary to its name, Apple's profiler in Instruments is actually a sampling profiler.  We find both useful
+for different occasions.  Specifically, we find hookshot most useful for:
+
+* Thread activity graphs with drill-in
+
+* Seeing accurate counts of calls
+
+* More precise per-call timings of messages
+
+* Measurement of messages with highly variable performance
+
+hookshot also contains utilities for counting live instances of classes you care about and generic message instrumentation.
 
 ## Installation
 
