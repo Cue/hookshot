@@ -19,9 +19,10 @@
 #ifdef HOOKSHOT_ENABLED
 
 #ifdef __cplusplus
+#import <string>
 
 class CCStackProfiler {
-    const char *_name;
+    const std::string _name;
 public:
     CCStackProfiler(const char *className, const char *name);
 

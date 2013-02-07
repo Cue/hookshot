@@ -196,7 +196,7 @@ CCStackProfiler::CCStackProfiler(const char *className, const char *name) : _nam
 
 CCStackProfiler::~CCStackProfiler()
 {
-    threadData()->finishCall(nil, _name);
+    threadData()->finishCall(nil, _name.c_str());
 }
 
 
