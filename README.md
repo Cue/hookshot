@@ -42,13 +42,13 @@ hookshot also contains utilities for counting live instances of classes you care
 
 ## Installation
 
-You can get hookshot in your project within about 5 minutes: [step-by-step installation instructions](/Cue/hookshot/blob/master/Documentation/INSTALL.md)
+You can get hookshot in your project within about 5 minutes: [step-by-step installation instructions](/Documentation/INSTALL.md)
 
 ## Profiling
 
 hookshot provides a whitelist based instrumenting profiler.  You can use it to time critical parts of your code and identify bottlenecks.
 
-Once you've [installed](/Cue/hookshot/blob/master/Documentation/INSTALL.md) hookshot in your project and run it, you can start exploring your data.
+Once you've [installed](/Documentation/INSTALL.md) hookshot in your project and run it, you can start exploring your data.
 
 ### Basic hooks
 
@@ -66,7 +66,7 @@ You can omit messages you know are called frequently where you suspect profiling
 
 ### profile.py
 
-[/bin/profile.py](/Cue/hookshot/blob/master/bin/profile.py) will analyze your latest profile data dump and summarize it:
+[/bin/profile.py](/bin/profile.py) will analyze your latest profile data dump and summarize it:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $ bin/profile.py
@@ -234,7 +234,7 @@ HOOKSHOT_COUNTED_CPP_CLASS_IMPLEMENTATION_PREAMBLE(ClassName)
 ## Generic Instrumentation
 
 The above features are built on top of a generic capability for instance message instrumentation defined
-in [Classes/CCInstanceMessageInstrumentation.h](/Cue/hookshot/blob/master/Classes/CCInstanceMessageInstrumentation.h)
+in [Classes/CCInstanceMessageInstrumentation.h](/Classes/CCInstanceMessageInstrumentation.h)
 
 We'd love to hear what (non-production!) uses you find for it.
 
