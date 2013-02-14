@@ -208,6 +208,13 @@ CCStackProfiler::~CCStackProfiler()
 {
     int pid = [[NSProcessInfo processInfo] processIdentifier];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    for (NSString *partial in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[paths objectAtIndex:0] error:NULL]) {
+        if ([partial hasPrefix:@"profile-"]) {
+            NSString *docPath = [[paths objectAtIndex:0] stringByAppendingFormat:@"/%@", partial];
+            [[NSFileManager defaultManager] removeItemAtPath:docPath error:NULL];
+        }        
+    }
+    
     NSString *docPath = [[paths objectAtIndex:0] stringByAppendingFormat:@"/profile-%d", pid];
     NSLog(@"Writing profiler data to %@", docPath);
     FILE *output = fopen([docPath UTF8String], "w");
