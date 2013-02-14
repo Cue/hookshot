@@ -208,7 +208,8 @@ CCStackProfiler::~CCStackProfiler()
 {
     int pid = [[NSProcessInfo processInfo] processIdentifier];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    for (NSString *partial in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[paths objectAtIndex:0] error:NULL]) {
+    for (NSString *partial in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[paths objectAtIndex:0]
+                                                                                  error:NULL]) {
         if ([partial hasPrefix:@"profile-"]) {
             NSString *docPath = [[paths objectAtIndex:0] stringByAppendingFormat:@"/%@", partial];
             [[NSFileManager defaultManager] removeItemAtPath:docPath error:NULL];
