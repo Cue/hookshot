@@ -96,8 +96,8 @@ We recommend adding instrumentation in your AppDelegate class's `initialize` met
         return;
     }
     if ([[[[NSProcessInfo processInfo] environment] objectForKey:@"HookshotProfile"] isEqualToString:@"YES"]) {
-        PROFILE_CLASS(self);
-        PROFILE_CLASS([UIWebView class]);
+        HOOKSHOT_PROFILE_CLASS(self);
+        HOOKSHOT_PROFILE_CLASS([UIWebView class]);
     }
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~
